@@ -1,0 +1,48 @@
+{
+  "name": "ok-runner",
+  "version": "1.0.0",
+  "description": "A task runner that works just fine",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiaanduplessis/ok-runner.git"
+  },
+  "homepage": "https://github.com/tiaanduplessis/ok-runner",
+  "bugs": "https://github.com/tiaanduplessis/ok-runner/issues",
+  "author": {
+    "name": "Tiaan",
+    "email": "tiaanduplessis@hotmail.com",
+    "url": "tiaanduplessis.co.za"
+  },
+  "bin": {
+    "ok": "cli.js"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "pretest": "npm run lint:fix",
+    "test": "jest --env=node",
+    "test:watch": "npm test -- --watch",
+    "coverage": "npm test -- --coverage",
+    "lint": "standard --verbose",
+    "lint:fix": "standard --fix --verbose",
+    "precommit": "npm test"
+  },
+  "keywords": [
+    "task-runner",
+    "build-tool",
+    "scripts",
+    "ok-runner"
+  ],
+  "dependencies": {
+    "execa": "^0.6.2",
+    "get-them-args": "^1.2.1",
+    "npm-run-path": "^2.0.2",
+    "shelljs": "^0.7.7"
+  },
+  "devDependencies": {
+    "husky": "^0.13.2",
+    "jest": "^19.0.2",
+    "standard": "^9.0.0"
+  }
+}
