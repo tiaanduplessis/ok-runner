@@ -5,7 +5,7 @@ const chalk = require('chalk')
 const shell = require('shelljs')
 const npmRunPath = require('npm-run-path')
 
-const exec = (cmd, options = {}, cb) => shell.exec(cmd, Object.assign({env: npmRunPath.env()}, options), cb)
+const exec = (cmd, options = {}, cb) => shell.exec(cmd, Object.assign({env: npmRunPath.env()}, options, cb))
 
 function ok () {
   const _tasks = {}
