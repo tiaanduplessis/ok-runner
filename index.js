@@ -1,6 +1,7 @@
 'use strict'
 
 const args = require('get-them-args')(process.argv.slice(2))
+const chalk = require('chalk')
 const shell = require('shelljs')
 const npmRunPath = require('npm-run-path')
 
@@ -12,22 +13,25 @@ function ok () {
     args,
     exec,
     task,
-    run}
+    run
+  }
 
   function task (name, handler) {
     if (typeof name !== 'string') {
-      throw new Error('The task name must be a string.')
+      console.error(`🚨 ${chalk.red.bold('Error!')} Task(${name}) must have a name.`)
+      return _ok
+      // throw new Error('The task name must be a string.')
     }
 
     if (typeof handler === 'string') {
       _tasks[name] = () => {
-        console.log(`${handler}`)
+        console.log(`\n⌨ cmd - ${handler}`)
         exec(handler)
       }
     } else if (typeof handler === 'function') {
       _tasks[name] = handler
     } else {
-      throw new Error(`Please provide a valid handler for task ${name}.`)
+      console.error(`🚨 ${chalk.red.bold('Error!')} Please provide a valid handler for task ${name}.`)
     }
 
     return _ok
@@ -35,20 +39,22 @@ function ok () {
 
   function run (name, handler) {
     if (typeof name !== 'string') {
-      throw new Error('The task name must be a string.')
+      console.error(`🚨 ${chalk.red.bold('Error!')} Task(${name}) must have a name.`)
+      return _ok
     }
 
     if (name !== 'all' && (!_tasks[name] && !handler)) {
-      console.error(`Task ${name} doesn't exist. Please provide a handler or create the task.`)
-      return
+      console.error(`🚨 ${chalk.red.bold('Error!')}Task ${chalk.bold(name)} doesn't exist. Please provide a handler or create the task.`)
+      return _ok
     }
 
-    const timerName = `⚡ ${name} ran in`
+    const timerName = `\n⚡ ${chalk.bold(name)} ran in`
     console.time(timerName)
 
     if (name === 'all') {
+      console.log(`\n🎉 ${chalk.magenta('Running all tasks')}`)
       for (let key in _tasks) {
-        console.log(`Running task ${key}`)
+        console.log(`\n✨ Task - ${chalk.bold(key)}`)
         _tasks[key](_ok)
       }
     } else {
@@ -56,7 +62,7 @@ function ok () {
         _ok.task(name, handler)
       }
 
-      console.log(`Running task ${name}`)
+      console.log(`\n✨ Task - ${chalk.bold(name)}`)
       _tasks[name](_ok)
     }
 
