@@ -1,4 +1,4 @@
-<h1 align="center">ok-runner - WIP</h1>
+<h1 align="center">👌 ok-runner 👌</h1>
 <div align="center">
   <strong>A task runner that works just fine</strong>
 </div>
@@ -115,7 +115,7 @@ Or you can run specific commands by using the cli. Modify your `ok.js`:
 const ok = require('ok-runner')
 
 ok
-  .task('Say hello', 'echo Hello!')
+  .task('Greet', 'echo Hello!')
   .task('Do some logging', () => {
     console.log('log')
     console.log('All')
@@ -132,7 +132,7 @@ module.exports.ok
 Then, after installing globally or via your npm scripts:
 
 ```sh
-$ ok hello
+$ ok Greet
 ```
 
 This will execute only the hello task. only running `ok` will run all the tasks
@@ -166,7 +166,6 @@ A simple wrapper around [shelljs]()'s `exec` method after extending it support e
 ## Example
 
 Please check the example directory.
-
 
 ## Contribute
 
