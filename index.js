@@ -7,8 +7,6 @@ const npmRunPath = require('npm-run-path')
 
 const exec = (cmd, options = {}, cb) => shell.exec(cmd, Object.assign({env: npmRunPath.env()}, options, cb))
 
-// TODO: - Switch to stack
-
 function ok () {
   const _tasks = []
   const _ok = {
@@ -55,7 +53,7 @@ function ok () {
     }
 
     // Create & start timer for running task
-    const timerName = `\n⚡ ${chalk.blue.bold(name)} ran in\n`
+    const timerName = `\n⚡ ${chalk.blue.bold(name)} ran in`
     console.time(timerName)
 
     if (name === 'all') {

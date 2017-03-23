@@ -6,7 +6,7 @@ const fs = require('fs')
 
 const chalk = require('chalk')
 const args = require('get-them-args')(process.argv.slice(2))
-const script = path.join(__dirname, (args.script || 'ok.js'))
+const script = path.join(process.cwd(), (args.script || 'ok.js'))
 const tasks = args.unknown
 
 if (fs.existsSync(script) && require.resolve(script)) {
