@@ -55,19 +55,12 @@
 <h2>Table of Contents</h2>
 <details>
   <summary>Table of Contents</summary>
-	<li><a href="#install">Install</a></li>
   <li><a href="#install">Install</a></li>
   <li><a href="#usage">Usage</a></li>
   <li><a href="#api">API</a></li>
   <li><a href="#contribute">Contribute</a></li>
   <li><a href="#license">License</a></li>
 </details>
-
-
-## Motivation
-
-I usually use `npm scripts` extensively as a build tool when [building libraries](https://github.com/tiaanduplessis?tab=repositories). Though this leads to my `package.json` becoming bloated and does not allow for proper commenting of longer commands. I wanted a simple build tool that allowed me to execute commands and functions(in more complex cases) with minimal effort. The popular solutions felt like overkill so I made my own. It ain't the next big thing, but it works fine.
-
 
 ## Install
 
